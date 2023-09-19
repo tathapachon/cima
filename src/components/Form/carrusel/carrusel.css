@@ -1,0 +1,17 @@
+/* Estilo para el contenedor principal del carrusel */
+.image-list-horizontal {
+    display: flex; /* Hace que los elementos internos se muestren en línea horizontal */
+    list-style-type: none; /* Elimina los puntos de lista */
+    padding: 0;
+  }
+  
+  /* Estilo para cada elemento de imagen */
+  .image-list-horizontal li {
+    margin-right: 10px; /* Espacio entre las imágenes */
+  }
+  
+  /* Estilo para los botones de eliminar */
+  .image-list-horizontal button {
+    margin-top: 5px; /* Espacio entre la imagen y el botón */
+  }
+  

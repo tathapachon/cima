@@ -1,0 +1,10 @@
+.user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:95vh;
+    background-color: #000000;
+    color: azure;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30rem;
+}

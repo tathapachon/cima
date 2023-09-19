@@ -1,0 +1,29 @@
+/* Estilo para el contenedor del formulario */
+.form-container {    
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+.input-form{
+    padding: 5px;
+    border-radius: 10px;
+    width: 130em;
+    border: 1px solid #ccc;
+}
+  
+.textarea-form{
+    height: 10vh;
+    padding: 5px;
+    border-radius: 10px;
+    width: 60vw;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+.media-type-form label{
+margin: 2px;
+}
+

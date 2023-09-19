@@ -1,0 +1,10 @@
+.about1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: #000000;
+    color: azure;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30rem;
+}

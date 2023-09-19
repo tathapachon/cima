@@ -1,0 +1,44 @@
+/* UserCard.css */
+.card-user {
+    border: 1px solid #ccc;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: calc(25% - 20px);
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .card-user:last-child {
+    margin-right: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .card-user {
+      width: calc(50% -100x);
+    }
+  }
+  
+  .card-user img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-details {
+    flex: 1;
+  }
+  
+  .user-details h2 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .user-details p {
+    margin: 0;
+    color: #666;
+  }
+  

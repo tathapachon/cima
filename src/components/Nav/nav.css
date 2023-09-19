@@ -1,0 +1,91 @@
+.center-nav {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width:100px;
+  }
+  
+  .nav {
+
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+    min-height: 98vh;
+    margin-left: 2px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 2;
+  }
+  
+  .nav-hovered {    
+    width: 200px;    
+  }
+  .image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+  }
+  .menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 100px;
+    cursor: pointer;
+    
+  }
+  .menu-item:hover{
+    border-left: 5px solid white;
+  }
+  nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .menu-item-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 90px;
+    cursor: pointer;
+  }
+
+  label{
+    cursor: pointer;
+  }
+  .columns {
+    display: flex;
+  }
+  
+
+ .item {
+    display: none;
+    transition: width 0.3s ease;
+    background-color: black;
+  }
+  
+  .nav-hovered .item {
+    display: block;
+    opacity: 1; /* Mostrar gradualmente con la transición */
+  }
+  
+  .dropbtn .dropbtn-img{
+    width: 40px; /* Ajusta el ancho de la imagen según tu diseño */
+    height: 40px; /* Ajusta la altura de la imagen según tu diseño */
+    border-radius: 50%; /* Para hacer la imagen circular */
+    /* Espacio entre la imagen y el texto */
+   }
+   .dropbtn{
+    width: 100px; /* Ajusta el ancho de la imagen según tu diseño */
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-self: start;
+   }
+  

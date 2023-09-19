@@ -1,0 +1,74 @@
+/* Aplicar scroll suave a todo el documento */
+html {
+    scroll-behavior: smooth;
+  }
+  
+.principalview{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: transparent;
+   
+}
+
+.principalview h3{
+   font-size: 68px; 
+   line-height: 80px;
+   font-weight: 300;
+   margin: 0px 0px 15px -7px;
+   
+}
+.principalview h4{
+    font-weight: 300;
+    margin: 0px 0px 60px;
+    font-size: px; 
+}
+.principalview img{
+    width: 1830px;
+    height: 1030px;
+}
+.principalview p{
+    margin: 60px;
+    letter-spacing: -.02em;
+        font-size: 25px;
+    line-height: 40px;
+}
+.principalcenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;   
+    width: 95vw;
+    
+}
+
+/* Estilos para el contenedor de desplazamiento */
+.scroll-container {
+    height: 100vh; /* Establece la altura al 100% de la ventana */
+    /* Habilita la barra de desplazamiento vertical */
+    scroll-behavior: smooth; /* Activa el desplazamiento suave */
+  }
+  
+  /* Estilos para el contenido principal */
+  .principalview {
+    padding: 20px;
+  }
+  
+  /* Estilos para el elemento de destino del desplazamiento suave */
+  .target-element {
+    margin-top: 20px;
+    padding: 20px;
+  
+  }
+  
+  /* Estilos para elementos con animaciones de entrada */
+  .animate-fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  /* Estilos activados después del desplazamiento suave */
+  .animate-fade-in-active {
+    opacity: 1;
+  }

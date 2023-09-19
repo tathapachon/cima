@@ -1,0 +1,27 @@
+
+.admin-container {
+    font-family: Arial, sans-serif;
+    display: flex;
+    background-color: #f1f1f1;
+    overflow: hidden;
+  }
+  
+  .content {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 100px;
+  }
+  
+  .div-content {
+    background-color: rgb(214, 214, 214);
+    height: 200px;
+    flex: 1;
+    width: 90vw;
+    margin: 20px; /* Agrega espacio vertical entre los elementos */
+  }
+  
+  
+  

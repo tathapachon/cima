@@ -1,0 +1,30 @@
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:95vh;
+  
+    font-family: 'Bebas Neue', sans-serif;
+    
+}
+
+.profile-card{
+    height: 80vh;
+    width: 80vh;
+    border-radius: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+    box-shadow: 0 0 9px rgba(200, 208, 207, 0.5);
+    padding: 2rem;
+    flex-direction: column;
+}
+
+.profile-card img{
+    width: 160px; /* Ajusta el ancho de la imagen según tu diseño */
+    height: 160px; /* Ajusta la altura de la imagen según tu diseño */
+    border-radius: 50%; /* Para hacer la imagen circular */
+    margin-right: 10px; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
