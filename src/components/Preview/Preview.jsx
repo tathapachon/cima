@@ -6,7 +6,7 @@ import Previewprincipal from "./PrincipalPreview";
 import { useRef } from "react";
 
 const Preview = ({ data }) => {
-  console.log("data",data)
+
   const [principal,setPrincipal] =useState()
   const [scrollOpacity, setScrollOpacity] = useState(1);
   console.log(principal)

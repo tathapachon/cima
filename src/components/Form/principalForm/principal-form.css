@@ -5,20 +5,30 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
   }
   
 .input-form{
-    padding: 5px;
-    border-radius: 10px;
-    width: 130em;
-    border: 1px solid #ccc;
+    
+    padding: 10px 16px;
+    border-top:none ;
+    border-left:none ;
+    border-right:none ;
+    width: 60%; 
+    outline: none;
+    font-size: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.section-principal{
+    margin-left: 1rem;
 }
   
 .textarea-form{
     height: 10vh;
     padding: 5px;
     border-radius: 10px;
-    width: 60vw;
+    width: 50rem;
     border: 1px solid #ccc;
     resize: none;
 }

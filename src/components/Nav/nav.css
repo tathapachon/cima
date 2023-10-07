@@ -10,10 +10,9 @@
 
     background-color: black;
     color: white;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     width: 100px;
-    min-height: 98vh;
-    margin-left: 2px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     position: fixed;

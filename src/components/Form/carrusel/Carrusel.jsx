@@ -105,11 +105,7 @@ const Carrusel = ({ sectionId, onDelete, data }) => {
         <Droppable droppableId={`images-${sectionId}`} direction="horizontal">
           {(provided) => (
             <div
-              style={{
-                backgroundColor: "red",
-                height: "600px",
-                width: "1000px",
-              }}
+              
               {...provided.droppableProps}
               ref={provided.innerRef}
               className="image-list-horizontal"

@@ -6,14 +6,11 @@ import "react-toastify/dist/ReactToastify.css";
 import useIsUserAuthenticated from "../../frontend/src/pages/Private/PrivateRoute.jsx";
 import Blogs from "./pages/Blog/Blogs.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
-import Blog from "./pages/Blog/blog/Blog.jsx";
 import Admin from "./pages/Admin/Admin.jsx";
 import Featureds from "./pages/Featured/Featureds.jsx"
 import Contact from "./pages/Contact/Contact.jsx";
 import About from "./pages/About/About.jsx";
 import CreateBlog from "../../frontend/src/pages/Blog/Create/CreateBlog.jsx";
-import PrincipalForm from "./components/Form/principalForm/PrincipalForm.jsx";
-import Carrusel from "./components/Form/carrusel/Carrusel.jsx";
 import Preview from "./components/Preview/Preview.jsx";
 const App = () => {
   const authenticated = useIsUserAuthenticated(); // Utiliza el hook correctamente

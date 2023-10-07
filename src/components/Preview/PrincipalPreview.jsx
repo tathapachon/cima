@@ -51,7 +51,7 @@ const PreviewPrincipal = ({ principal }) => {
         
         <div className="principalcenter">
           <div>
-            <h3 className="animate-fade-in">{principal.title}</h3>
+            <h3 className="animate-fade-in">CAsa</h3>
             <h4 className="animate-fade-in">Branding Identity</h4>
             <img
               src="https://tendril.studio/wp-content/uploads/2022/09/image-26-2048x1152.png"

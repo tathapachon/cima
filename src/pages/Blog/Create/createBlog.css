@@ -35,17 +35,20 @@
   }
   
   .div-content-t {
-    width: 100vw;
+    width: 90vw;
     flex: 1;
     border-radius: 8px;
-    background-color: rgb(204, 203, 203);
-    max-height: calc(100vh - 130px); /* Establecer la altura máxima */
+    background-color: rgb(194, 194, 194);
+    max-height: calc(100vh - 150px); /* Establecer la altura máxima */
     overflow-y: auto; /* Agregar desbordamiento vertical automático */
     margin-top: 10px;
- 
-    
+    display: flex ;
+    align-items: center;
+    flex-direction: column;
   }
-  
+  .formPart{
+    width: 60rem;
+  }
 
   
   .paint-center {

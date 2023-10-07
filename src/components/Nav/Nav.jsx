@@ -34,6 +34,7 @@ import off from "../../assets/power-off.png";
         onMouseEnter={() => setIsNavHovered(true)}
         onMouseLeave={() => setIsNavHovered(false)}
       >
+        
         <div className="image">
           <img src={Logo} height={"60px"} width={"60px"} alt="" />
         </div>

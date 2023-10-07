@@ -11,7 +11,7 @@ import VideoForm from "../../../components/Form/videoForm/VideoForm";
 import ImageForm from "../../../components/Form/imageForm/ImageForm";
 import Carrusel from "../../../components/Form/carrusel/Carrusel";
 import { useSelector } from "react-redux";
-import { uploadByte } from "../../../firebase/config.js";
+import { uploadByte, deleteImageOrVideo } from "../../../firebase/config.js";
 import Modal from "react-modal";
 import Preview from "../../../components/Preview/Preview";
 import { useParams } from "react-router-dom";
@@ -23,6 +23,7 @@ function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const { id } = useParams();
   const [data, setData] = useState();
+  const [imgSec, setImaSec] = useState([]);
   const modalStyles = {
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -46,7 +47,7 @@ function App() {
       order: 1,
     };
     setSections([...sections, newSection]);
-    setNextId(nextId + 1);
+    setNextId(nextId);
     setAddPrincipalFormActive(false);
   };
   const addNewForm = (formType) => {
@@ -54,17 +55,19 @@ function App() {
     const newSection = {
       id: newId,
       type: formType,
-      order: nextId,
+      order: nextId + 1,
     };
     setSections([...sections, newSection]);
     setNextId(nextId + 1);
   };
+
   useEffect(() => {
     if (id) {
       axios
         .get(`http://localhost:3001/blog/${id}`)
         .then((response) => {
           setSections(response.data.formData);
+          setImaSec(response.data.formData);
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -78,11 +81,9 @@ function App() {
     const [reorderedItem] = reorderedSections.splice(result.source.index, 1);
     reorderedSections.splice(result.destination.index, 0, reorderedItem);
 
-    // Contadores para llevar el orden
     let principalOrder = 1;
     let nonPrincipalOrder = 2;
 
-    // Objeto para realizar un seguimiento de los IDs utilizados
     const usedIds = {};
 
     reorderedSections.forEach((section) => {
@@ -106,7 +107,7 @@ function App() {
     });
 
     setSections(reorderedSections);
-  };  
+  };
   const openModal = () => {
     const combinedSections = sections.map((section) => {
       const matchingPrincipal = principalForm.find(
@@ -127,6 +128,7 @@ function App() {
   const closeModal = () => {
     setModalIsOpen(false);
   };
+
   const handleSaveData = async () => {
     try {
       const combinedSections = sections.map((section) => {
@@ -140,7 +142,6 @@ function App() {
 
       const formData = combinedSections;
 
-      // Utiliza Promise.all para esperar a que todas las promesas se resuelvan
       await Promise.all(
         formData.map(async (section, index) => {
           if (section.type === "carrusel") {
@@ -160,17 +161,27 @@ function App() {
 
           if (section.media || section.video || section.image) {
             const url = await uploadByte(
-              section.media || section.video || section.image
+              section.media[0].file || section.video || section.image
             );
             section.url = url;
-            delete section.media;
+
             delete section.video;
             delete section.image;
+            console.log("originalSection.usrl", section.media);
+
+            const originalSection = imgSec?.find((s) => s.id === section.id);
+            if (
+              originalSection &&
+              originalSection.url !== url &&
+              originalSection.url
+            ) {
+              console.log("originalSection.url", originalSection);
+              await deleteImageOrVideo(originalSection.url);
+            }
           }
         })
       );
 
-      // Realizar la solicitud PUT al backend si existe un ID
       if (id) {
         console.log("formData3", formData);
         const response = await axios.put(`http://localhost:3001/blog/${id}`, {
@@ -184,7 +195,7 @@ function App() {
           );
         }
       } else {
-        // Realiza la solicitud POST al backend si no existe un ID
+        console.log("formData", formData);
         const response = await axios.post(
           "http://localhost:3001/blog/guardar",
           formData,
@@ -206,6 +217,7 @@ function App() {
       console.error("Error al guardar datos en el backend:", error);
     }
   };
+
   const handleDelete = (sectionId) => {
     const seccionesRestantes = sections.filter(
       (section) => section.id !== sectionId
@@ -231,9 +243,10 @@ function App() {
       <div className="content-t">
         <div className="div-content-t">
           {sections.map((section) => (
-            <div key={section.id}>
+            <div className="formPart" key={section.id}>
               {section.type === "principal" && (
                 <PrincipalForm
+                  data={section}
                   sectionId={section.id}
                   key={section.id}
                   onDelete={handleDelete}
@@ -272,7 +285,7 @@ function App() {
                           {...provided.dragHandleProps}
                         >
                           {section.type === "title" && (
-                            <div key={section.id}>
+                            <div className="formPart" key={section.id}>
                               <TitleForm
                                 key={section.id}
                                 sectionId={section.id}
@@ -281,7 +294,7 @@ function App() {
                             </div>
                           )}
                           {section.type === "video" && (
-                            <div key={section.id}>
+                            <div className="formPart" key={section.id}>
                               <VideoForm
                                 sectionId={section.id}
                                 key={section.id}
@@ -290,7 +303,7 @@ function App() {
                             </div>
                           )}
                           {section.type === "carrusel" && (
-                            <div key={section.id}>
+                            <div className="formPart" key={section.id}>
                               <Carrusel
                                 data={section}
                                 sectionId={section.id}
@@ -301,7 +314,7 @@ function App() {
                           )}
 
                           {section.type === "image" && (
-                            <div key={section.id}>
+                            <div className="formPart" key={section.id}>
                               <ImageForm
                                 sectionId={section.id}
                                 key={section.id}
@@ -310,7 +323,7 @@ function App() {
                             </div>
                           )}
                           {section.type === "description" && (
-                            <div key={section.id}>
+                            <div className="formPart" key={section.id}>
                               <DescriptionForm
                                 sectionId={section.id}
                                 key={section.id}
@@ -319,7 +332,7 @@ function App() {
                             </div>
                           )}
                           {section.type === "subtitle" && (
-                            <div key={section.id}>
+                            <div className="formPart" key={section.id}>
                               <SubtitleForm
                                 sectionId={section.id}
                                 key={section.id}
