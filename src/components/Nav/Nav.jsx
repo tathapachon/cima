@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import imgDefault from "../../assets/img-default.jpg";
 import "./nav.css";
 import { useNavigate } from "react-router-dom";
@@ -9,11 +8,18 @@ import bulb from "../../assets/bulb.png";
 import comment from "../../assets/comment-alt.png";
 import sparkles from "../../assets/sparkles.png";
 import apps from "../../assets/apps.png";
+import flecha from "../../assets/flecha-izquierda.png";
 import { Link } from "react-router-dom";
 import off from "../../assets/power-off.png";
- function Nav() {
-  const [isNavHovered, setIsNavHovered] = useState(false);
+import { useState } from "react";
+function Nav() {
   const navigateTo = useNavigate();
+  const [isNavHovered, setIsNavHovered] = useState(false);
+
+  const viewMenu = () => {
+    setIsNavHovered(!isNavHovered);
+  };
+
   const handleLogout = async (e) => {
     e.preventDefault();
     try {
@@ -29,118 +35,169 @@ import off from "../../assets/power-off.png";
   };
   return (
     <div className="center-nav">
-      <nav
-        className={`nav ${isNavHovered ? "nav-hovered" : ""}`}
-        onMouseEnter={() => setIsNavHovered(true)}
-        onMouseLeave={() => setIsNavHovered(false)}
+
+      
+      <div className={`nav ${!isNavHovered ? "nav-hovered" : ""}`}
+       onMouseEnter={() => setIsNavHovered(true)}
+       onMouseLeave={() => setIsNavHovered(false)}
       >
-        
-        <div className="image">
+        <div className="image-nav-logo">
           <img src={Logo} height={"60px"} width={"60px"} alt="" />
         </div>
+        
         <div className="columns">
-          <div className="menu">
-            <Link to="/home" style={{ textDecoration: "none", color: "inherit" }}>
-              <div className="menu-center">
-                <div className="menu-item">
+          <Link to="/home" style={{ textDecoration: "none", color: "inherit" }}>
+            <div className="menu-center">
+              <div className="menu-item">
+              {!isNavHovered &&(
+                <div className="center-img">
+                  {" "}
                   <img src={apps} height={"20px"} width={"20px"} alt="" />
                 </div>
-              </div>
-            </Link>
-            <Link to="/projects" style={{ textDecoration: "none", color: "inherit" }}>
-              <div className="menu-center">
-                <div className="menu-item">
-                  <img src={Project} height={"20px"} width={"20px"} alt="" />
-                </div>
-              </div>
-            </Link>
-            <Link to="/blogs" style={{ textDecoration: "none", color: "inherit" }}>
-              <div className="menu-item">
-                <img src={documents} height={"20px"} width={"20px"} alt="" />
-              </div>
-            </Link>
-            <Link to="/featureds" style={{ textDecoration: "none", color: "inherit" }}>
-              <div className="menu-item">
-                <img src={bulb} height={"20px"} width={"20px"} alt="" />
-              </div>
-            </Link>
-            <Link to="/contact" style={{ textDecoration: "none", color: "inherit" }}>
-              <div className="menu-item">
-                <img src={comment} height={"20px"} width={"20px"} alt="" />
-              </div>
-            </Link>
-            <Link to="/about" style={{ textDecoration: "none", color: "inherit" }}>
-              <div className="menu-item">
-                <img src={sparkles} height={"20px"} width={"20px"} alt="" />
-              </div>
-            </Link>
-          </div>
-          {isNavHovered && (
-            <div className="item">
-              <Link to="/home" style={{ textDecoration: "none", color: "inherit" }}>
-                <div className="menu-center">
-                  <div className="menu-item-center">
+                 )}
+                {isNavHovered && (
+                  <div className="center-c">
                     <label>Home</label>
                   </div>
-                </div>
-              </Link>
-              <Link to="/projects" style={{ textDecoration: "none", color: "inherit" }}>
-                <div className="menu-center">
-                  <div className="menu-item-center">
+                )}
+              </div>
+            </div>
+          </Link>
+          <Link
+            to="/projects"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="menu-center">
+              <div className="menu-item">
+              {!isNavHovered &&(
+                <div className="center-img"> <img src={Project} height={"20px"} width={"20px"} alt="" />
+               </div>
+                         )}
+                {isNavHovered && (
+                  <div className="center-c">
                     <label>Projects</label>
                   </div>
-                </div>
-              </Link>
-              <Link to="/blogs" style={{ textDecoration: "none", color: "inherit" }}>
-                <div className="menu-item-center">
-                  <label>Blogs</label>
-                </div>
-              </Link>
-              <Link to="/featureds" style={{ textDecoration: "none", color: "inherit" }}>
-                <div className="menu-item-center">
-                  <label>Featured</label>
-                </div>
-              </Link>
-              <Link to="/contact" style={{ textDecoration: "none", color: "inherit" }}>
-                <div className="menu-item-center">
-                  <label>Contact</label>
-                </div>
-              </Link>
-              <Link to="/about" style={{ textDecoration: "none", color: "inherit" }}>
-                <div className="menu-item-center">
-                  <label>About</label>
-                </div>
-              </Link>
+                )}
+              </div>
             </div>
-          )}
+          </Link>
+          <Link
+            to="/blogs"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="menu-center">
+              <div className="menu-item">
+              {!isNavHovered &&(
+                <div className="center-img">  <img src={documents} height={"20px"} width={"20px"} alt="" />
+              </div>)}
+                {isNavHovered && (
+                  <div className="center-c">
+                    <label>Blogs</label>
+                  </div>
+                )}
+              </div>
+            </div>
+          </Link>
+          <Link
+            to="/featureds"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="menu-center">
+              <div className="menu-item">
+              {!isNavHovered &&(
+                <div className="center-img">  <img src={bulb} height={"20px"} width={"20px"} alt="" />
+              </div> )}
+                {isNavHovered && (
+                 <div className="center-c">
+                    <label>Featured</label>
+                  </div>
+                )}
+              </div>
+            </div>
+          </Link>
+          <Link
+            to="/contact"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="menu-center">
+              <div className="menu-item">
+              {!isNavHovered &&(
+                <div className="center-img"> <img src={comment} height={"20px"} width={"20px"} alt="" />
+               </div>)}
+                {isNavHovered && (
+                  <div className="center-c">
+                    <label>Contact</label>
+                  </div>
+                )}
+              </div>
+            </div>
+          </Link>
+          <Link
+            to="/about"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="menu-center">
+              <div className="menu-item">
+              {!isNavHovered &&(
+                <div className="center-img"> <img src={sparkles} height={"20px"} width={"20px"} alt="" />
+               </div>)}
+                {isNavHovered && (
+                  <div className="center-c">
+                    <label>About</label>
+                  </div>
+                )}
+              </div>
+            </div>
+          </Link>
         </div>
-        <div className="dropbtn" >
-          <div className="image">
-          <img className="dropbtn-img" src={imgDefault} height="90px" width="90px" alt="" />
-          </div>
-          
-        
-       
-        <div className="columns">
-        <div className="menu">
-            <Link to="" onClick={handleLogout} style={{ textDecoration: "none", color: "inherit" }}>
+        <div className="dropbtn">
+          <div className="columns">
+            <Link
+              to="/profile"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <div className="menu-center">
                 <div className="menu-item">
-                  <img src={off} height={"20px"} width={"20px"} alt="" />
+                {!isNavHovered &&(
+                  <div className="center-img">
+
+                    <img
+                      className="img-profile"
+                      src={imgDefault}
+                      height="25px"
+                      width="25px"
+                      alt=""
+                    />
+                  </div>)}
+                  {isNavHovered && (
+                    <div className="center-c">
+                      <label>Profile</label>
+                    </div>
+                  )}
                 </div>
-                </div>
-                </Link>
-           </div>  
-           <div className="item">
-           <Link  onClick={handleLogout} to="" style={{ textDecoration: "none", color: "inherit" }}>
-                <div className="menu-item-center">
+              </div>
+            </Link>
+            <Link
+              to=""
+              onClick={handleLogout}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <div className="menu-center">
+                <div className="menu-item">
+                {!isNavHovered &&(
+                  <div className="center-img">
+                    {" "}
+                    <img src={off} height={"20px"} width={"20px"} alt="" />
+                  </div>)}
+                  {isNavHovered &&(<div className="center-c" >
                   <label>Logout</label>
+                </div>)}
                 </div>
-              </Link>
               </div>
-              </div>
-              </div>
-      </nav>
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

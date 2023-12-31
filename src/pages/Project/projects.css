@@ -1,26 +1,68 @@
 
-.admin-container {
-  font-family: Arial, sans-serif;
+.admin-project {
+  font-family: 'Noto Sans KR', sans-serif;
   display: flex;
-  background-color: #f1f1f1;
+background-color: rgb(255, 255, 255);
   overflow: hidden;
 }
 
-.content {
+.admin-project-content {
   flex: 1;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  margin-left: 100px;
+
+}
+.nav-project{
+  width: 80vw;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.search-project{
+  height: 41px;
+  padding: 0 24px 0 48px;
+  border-radius: 50px;
+  outline: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  background-color:  #f5f5f5;
+  border: none;
+  box-shadow: none;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.search-project:focus{
+  border-radius: 9999999px;
 }
 
-.div-content {
-  background-color: rgb(214, 214, 214);
-  height: 200px;
-  flex: 1;
-  width: 90vw;
-  margin: 20px; /* Agrega espacio vertical entre los elementos */
+.button-project{  
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  box-shadow: none;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+  background: #000000;
+  color: #fff;
 }
 
+.button-project:focus{
+  border-radius: 50px;
+}
+.button-project:hover{
+  background: #424242;
+}
+.grid-project{
+  flex: 2;
+}
+.logo-project{
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+}
 

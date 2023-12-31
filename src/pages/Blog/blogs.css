@@ -1,90 +1,110 @@
-/* blogs.css */
-
-.admin-container {
+.admin-containerr {
     font-family: Arial, sans-serif;
     display: flex;
-    background-color: #f1f1f1;
+    background-color: #f7f7f7;
     overflow: hidden;
+    
   }
-  
-  .content {
-    flex: 1;
+  .cont{
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-left: 100px;
-  }
-  
-  .link-style {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-/* blogs.css */
-
-/* ... (código previo) */
-
-.div-content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto auto;
-    gap: 10px;
-    border-radius: 8px;
-  }
-  
-  .div-content div {
-    background-color: rgb(241, 240, 240);
-    padding: 10px;
-    margin: 30px;
-    border-radius: 8px;
-  }
-  
-  /* Añadimos estilos para pantallas más pequeñas usando Media Queries */
-  @media (max-width: 768px) {
-    .div-content {
-      grid-template-columns: repeat(2, 1fr); /* Cambia a dos columnas en pantallas más pequeñas */
-      grid-template-rows: auto auto auto; /* Agrega otra fila si es necesario */
-    }
-  
-    .div-content div {
-      margin: 10px; /* Reduce el margen en pantallas más pequeñas */
-      height: 30px;
-    }
-  }
-  
-  /* Ajustes adicionales para pantallas aún más pequeñas si es necesario */
-  @media (max-width: 680px) {
-    .div-content {
-      grid-template-columns: 1fr; /* Una sola columna en pantallas muy pequeñas */
-      grid-template-rows: auto auto auto auto; /* Ajusta el número de filas si es necesario */
-    }
-  }
-  
-  
-  .div-nav {
-    background-color: rgb(214, 214, 214);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90vw;
-    margin: 15px;
-    height: 100px;
-    border-radius: 8px;
-  }
-  
-  .na {
-    flex: 1;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  
-  .image-nav {
-    background: black;
-    width: 100px;
-    height: 60px;
-    display: flex;
-    align-items: center;
     justify-content: center;
-
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 90vw;
+    margin-left:50px;
+  }  
+  .hola{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
+.div-contenttt {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 25px; 
+  border-radius: 8px; 
+}
+
+
+.image-nav{
+  height: 80px;
+  width:400px;
+  margin: 10px;
+  flex: 2;
+ border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.na{
+  flex: 1;
+ height: 80px;
+  width: 150px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.div-navv{
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  width: 65vw;
+  margin: 20px;  
+  border-radius: 5px;
+
+}
+.link-style{
+  background-color: rgb(225, 223, 223);
+  height: 60px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+}
+.input-blog{
+  background-color: rgb(225, 223, 223);
+  height: 60px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+}
+.input-blog input{
+  border-radius: 50px;
+  height: 30px;
+  border: none;
+  width: 90%;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+.nav-blog{
+  height: 100vh;
+  width: 100px;  
+}
+  
+
+.grid-item {
+
+  transition: transform 0.3s ease-in-out;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+}
+
+  
+
   

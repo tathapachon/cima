@@ -1,0 +1,122 @@
+.create-project{
+   
+    display: flex;   
+    height:100vh;
+}
+.form-create-project{
+    flex: 3;
+    padding: 30px;
+}
+.button-create-project{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.cancel-create{
+    border: 1.5px solid #e7e7e9;
+    background-color: #fff;
+    box-shadow: none;
+    color: #0d0c22;
+    line-height: 16px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Noto Sans KR', sans-serif;
+    height: 40px;
+    cursor: pointer;
+}
+
+.cancel-create:hover{
+    border: 1.5px solid #d9d9da;
+   
+}
+.cancel-create:focus{
+    border-radius: 50px;
+}
+
+.post-create{
+    background-color: #000000;
+    box-shadow: none;
+    color: #ffffff;
+    line-height: 16px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Noto Sans KR', sans-serif;
+    height: 40px;
+    cursor: pointer;
+}
+.post-create:focus{
+    border-radius: 50px;
+}
+
+.line{
+    width: 50%;
+    height: 2px;
+    background: #e7e7e9;
+}
+
+.insert-block-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.insert-block{
+    width: 256px;
+    height: 44px;
+    background-color: #fff;
+    border-radius: 50px;
+    font-family: 'Noto Sans KR', sans-serif;
+    border: 1px solid #cdcdce;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #0d0c22;
+}
+
+.insert-block:focus{
+    border-radius: 50px;
+}
+
+.create-project.with-menu .complete-form {
+    width: 100%;
+    flex: 3;
+  }
+
+  .complete-form {
+    flex: 3;
+    padding: 24px;
+  }
+
+  .menu-insert {
+    width: 320px;
+    z-index: 9;
+    box-shadow: -10px 0 48px rgba(0,0,0,.06);
+    height: 100vh;
+    transform: translateX(100%); /* Inicialmente fuera de la pantalla hacia la derecha */
+    transition: width 0.3s ease; /* Aplica la transición solo al ancho */
+    list-style-type: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    display: flex;
+    flex-direction: column;
+  
+  }
+  
+  .menu-insert {
+    transform: translateX(0); /* Muestra el menú moviéndolo hacia la izquierda */
+    padding: 32px;
+    list-style-type: none;
+  }
+.insert-form{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 29px;
+}
+  

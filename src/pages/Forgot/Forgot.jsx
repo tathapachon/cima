@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
-import "./login.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { loginSuccess, loginFailure } from "../../store/actions/authActions";
 import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import Logo from "../../assets/Logo.jpg";
-const Login = () => {
+const Forgot = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [emailModal, setEmailModal] = useState("");
@@ -16,6 +15,8 @@ const Login = () => {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const [username, setUsername] = useState("");
 
  
   const handleLoginSuccess = (dispatch, user, token) => {
@@ -67,7 +68,6 @@ const Login = () => {
     }
   };
   const login = (email, password) => {
-
     return async (dispatch) => {
       try {
         const response = await axios.post("http://localhost:3001/login", {
@@ -75,7 +75,7 @@ const Login = () => {
           password,
         });
         const token = response.data.token;
-console.log("token ",token )
+
         if (token) {
           handleLoginSuccess(dispatch, response.data.user, token);
         }
@@ -95,7 +95,7 @@ console.log("token ",token )
 
     try {
       const response = await axios.put("http://localhost:3001/restablecer", {
-        email: emailModal,
+        email: email,
       });
     } catch (error) {
       console.error("Error al enviar la solicitud de restablecimiento", error);
@@ -134,7 +134,9 @@ console.log("token ",token )
     progress: undefined,
     theme: "dark",
   };
-
+  const handleInputChange = (event) => {
+    setEmail(event.target.value);
+  };
   return (
     <div className="login">
     <div className="video-login">
@@ -146,27 +148,22 @@ console.log("token ",token )
       <div className="form-login">
         <div className="form-login-div">
           <div className="login-margin">
-            <span className="title-login">Sign in to Cima</span>
+            <span className="title-login">Forgot Password?</span>
           </div>
-
+            <div>
+              <span className="form-login-label"> 
+              Hey, can you share your email? We'll shoot you a link to reset your password!
+              </span>
+            </div>
           <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleResetLinkClick}>
               <div className="login-margin">
                 <label className="form-login-label">Email</label>
-                <input className="form-login-input" type="text" value={email} onChange={handleEmailChange}/>
+                <input className="form-login-input" type="text" value={email}
+                  onChange={handleInputChange}  />
               </div>
-              <div className="login-margin">
-                <div className="password-login">
-                 
-                  <label className="form-login-label">Password</label>
-                  <Link to="/forgot-password">Forgot?</Link>
-                </div>
-
-                <input className="form-login-input" type="password" value={password} onChange={handlePasswordChange}/>
-              </div>
-
-              <div className="login-margin">
-                <button className="form-login-button">Sign In</button>
+                  <div className="login-margin">
+                <button className="form-login-button">Send</button>
               </div>
             </form>
           </div>
@@ -176,4 +173,4 @@ console.log("token ",token )
   );
 };
 
-export default Login;
+export default Forgot;

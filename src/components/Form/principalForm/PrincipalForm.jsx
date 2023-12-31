@@ -4,7 +4,9 @@ import { updateSection } from "../../../store/actions/principalFormActions.js";
 import "./Principal-form.css";
 import checkbox from "../../../assets/checkbox.png";
 import PropTypes from "prop-types";
-
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { useCallback } from 'react';
+import { useDropzone } from 'react-dropzone';
 const PrincipalForm = ({ data, sectionId }) => {
   console.log("datata", data);
   const [section, setSection] = useState({
@@ -18,6 +20,18 @@ const PrincipalForm = ({ data, sectionId }) => {
   });
 
   const dispatch = useDispatch();
+  const [uploadedImage, setUploadedImage] = useState(null);
+
+  const onDrop = useCallback((acceptedFiles) => {
+    const file = acceptedFiles[0];
+    section.media=file
+    console.log("file", section.media)
+    setUploadedImage(URL.createObjectURL(file));
+  }, []);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+
+
 
   const handleInputChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -89,120 +103,65 @@ const PrincipalForm = ({ data, sectionId }) => {
           <h1>Color</h1>
         </div>
         <div className="section-principal">
-          <label htmlFor="title">Principal section</label>
 
-          <div>
-            <label htmlFor="title">Título:</label>
+        <div className="input-project-principal">
+             
 
             <input
               className="input-form"
+              placeholder="Add the project title"
               type="text"
               id="title"
               name="title"
               value={section.title}
               onChange={handleInputChange}
             />
-          </div>
-          <div>
-            <label htmlFor="subtitle">Subtítulo:</label>
-
+          
             <input
-              className="input-form"
+              className="input-form-subtitle"
+              placeholder="Add the project subtitle"
               type="text"
               id="subtitle"
               name="subtitle"
               value={section.subtitle}
               onChange={handleInputChange}
             />
-          </div>
+        
+          
+        {!uploadedImage && (  
+      <div {...getRootProps()} className={`project-drap-drop ${isDragActive ? 'drag-active' : ''}`}>
+        <input {...getInputProps()} />
+        <span>{isDragActive ? 'Drop the files here' : 'Drag and drop media, or Browse'}</span>
+      </div>
+)}
+      {uploadedImage && (
+        <div className="image-form-proyect">
+        
+          <img src={uploadedImage} alt="Uploaded" style={{ maxWidth: '90%' , maxHeight: '90%'}}  />
+        </div>
+      )}
+  
+        
 
-          <div>
-            <label>Tipo de Media:</label>
+            
 
-            <label>
-              <input
-                type="radio"
-                name="mediaType"
-                value="image"
-                checked={section.mediaType === "image"}
-                onChange={handleInputChange}
-              />
-              Image
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="mediaType"
-                value="video"
-                checked={section.mediaType === "video"}
-                onChange={handleInputChange}
-              />
-              Video
-            </label>
-          </div>
-          <div>
-            <div className="media-center">
-              <div>
-                <input
-                  type="file"
-                  id="media"
-                  name="media"
-                  accept="image/*,video/*"
-                  onChange={handleFileSelect}
-                />
-              </div>
-
-              {section.mediaType === "image" &&
-                (section.media["0"]?.url || section.url) && (
-                <div>
-                  <img
-                    src={section.url ? section.url : section.media["0"]?.url}
-                    alt=""
-                    style={{ height: "90px" }}
-                  />
-                  <button onClick={removeImage}>Eliminar</button>
-                </div>
-              )}
-
-              {section.mediaType === "video" &&
-                (section.media["0"]?.url || section.url) && (
-                  <div>
-                    <video width="640" height="360" controls>
-                      <source
-                        src={
-                          section.url ? section.url : section.media["0"]?.url
-                        }
-                        type="video/mp4"
-                      />
-                    </video>
-                    <button onClick={removeImage}>Eliminar</button>
-                  </div>
-                )}
-
-              <div></div>
-            </div>
-          </div>
-
-          <div className="media-center">
-            <div>
-              <label htmlFor="description">Descripción:</label>
-
-              <div>
+         
                 <textarea
+                placeholder="Give a short description of the project or add relevant details"
                   className="textarea-form"
                   id="description"
                   name="description"
                   value={section.description}
                   onChange={handleInputChange}
                 />
-              </div>
-            </div>
-          </div>
+             
+         
           <div>
-            <button type="submit" className="submit-button">
-              <img src={checkbox} height={"30px"} alt="" />
-            </button>
+           
           </div>
+        </div>
+
+        
         </div>
       </div>
     </form>
