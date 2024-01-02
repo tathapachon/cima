@@ -4,14 +4,14 @@ import Projects from "../src/pages/Project/Projects.jsx";
 import CreateProject from "../src/pages/Project/Create/CreateProject.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import useIsUserAuthenticated from "../../frontend/src/pages/Private/PrivateRoute.jsx";
+import useIsUserAuthenticated from "./pages/Private/PrivateRoute.jsx";
 import Blogs from "./pages/Blog/Blogs.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Admin from "./pages/Admin/Admin.jsx";
 import Featureds from "./pages/Featured/Featureds.jsx"
 import Contact from "./pages/Contact/Contact.jsx";
 import About from "./pages/About/About.jsx";
-import CreateBlog from "../../frontend/src/pages/Blog/Create/CreateBlog.jsx";
+import CreateBlog from "./pages/Blog/Create/CreateBlog.jsx";
 import Preview from "./components/Preview/Preview.jsx";
 import Forgot from "./pages/Forgot/Forgot.jsx";
 const App = () => {
