@@ -39,34 +39,25 @@ const SubtitleForm = ({ sectionId, onDelete }) => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <div className="form-container">
-        <div>
-          <div>
-            <div>
-              <label htmlFor="subtitle">Subtitulo:</label>
-            </div>
+      <div>
+       
             <div>
               <input
                 className="input-form"
                 type="text"
                 id="subtitle"
                 name="subtitle"
+                placeholder="Subtitle"
                 value={section.subtitle}
                 onChange={handleInputChange}
               />
-            </div>
-          </div>
+            </div>          
           <div>
             <button type="submit" className="submit-button">
               <img src={checkbox} height={"30px"} alt="" />
             </button>
           </div>
-          <div>
-          <button type="button" onClick={handleEliminarClick}>
-              Eliminar
-            </button>
-          </div>
-        </div>
+       
       </div>
     </form>
   );

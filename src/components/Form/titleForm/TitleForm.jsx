@@ -35,12 +35,7 @@ const TitleForm = ({ sectionId, onDelete }) => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <div className="form-container">
-        <div>
-          <div>
-            <div>
-              <label htmlFor="title">Título:</label>
-            </div>
+      <div >             
             <div>
               <input
                 className="input-form"
@@ -48,22 +43,17 @@ const TitleForm = ({ sectionId, onDelete }) => {
                 id="title"
                 name="title"
                 value={section.title}
+                placeholder="Title"
                 onChange={handleInputChange}
               />
             </div>
-          </div>
           <div>
             <button type="submit" className="submit-button">
               <img src={checkbox} height={"30px"} alt="" />
             </button>
           </div>
-          {/* Agrega el botón de "Eliminar" aquí */}
-          <div>
-          <button type="button" onClick={handleEliminarClick}>
-              Eliminar
-            </button>
-          </div>
-        </div>
+        
+        
       </div>
     </form>
   );

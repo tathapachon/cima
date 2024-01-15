@@ -6,22 +6,22 @@ import checkbox from "../../../assets/checkbox.png";
 import { deleteSection } from "../../../store/actions/principalFormActions.js"; // Importa la acción adecuada desde tu aplicación
 
 
-const DescriptionForm = ({ sectionId , onDelete}) => {
-    const [section, setSection] = useState({
-        description: "",
-       
-      });
+const DescriptionForm = ({ sectionId, onDelete }) => {
+  const [section, setSection] = useState({
+    description: "",
+
+  });
   const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-   
+
     setSection({
       ...section,
       [name]: value,
     });
-    
-    
+
+
   };
 
   const handleSubmit = (e) => {
@@ -40,42 +40,34 @@ const DescriptionForm = ({ sectionId , onDelete}) => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <div className="form-container">
+      <div>
         <div>
-          <div>
-            <div>
-              <label htmlFor="Description">Description:</label>
-            </div>
-            <div>
-                <textarea
-                  className="textarea-form"
-                  id="description"
-                  name="description"
-                  value={section.description}
-                  onChange={handleInputChange}
-                />
-              </div>
-          </div>
-          <div>
-            <button type="submit" className="submit-button">
-              <img src={checkbox} height={"30px"} alt="" />
-            </button>
-          </div>
-          <div>
-          <button type="button" onClick={handleEliminarClick}>
-              Eliminar
-            </button>
-          </div>
+          <textarea
+            className="textarea-form"
+            id="description"
+            name="description"
+            placeholder="description"
+            value={section.description}
+            onChange={handleInputChange}
+          />
         </div>
+
+        <div>
+          <button type="submit" className="submit-button">
+            <img src={checkbox} height={"30px"} alt="" />
+          </button>
+        </div>
+
+
       </div>
     </form>
   );
 };
 
 DescriptionForm.propTypes = {
-    sectionId: PropTypes.string,
+  sectionId: PropTypes.string,
   sectionType: PropTypes.string,
   sectionOrder: PropTypes.string,
   onDelete: PropTypes.func,
-  };
+};
 export default DescriptionForm;
