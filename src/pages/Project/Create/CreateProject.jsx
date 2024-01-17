@@ -151,8 +151,6 @@ const CreateProject = () => {
               </ul>
             </span>
           )}</div>
-
-
       </div>
     </div>
   );

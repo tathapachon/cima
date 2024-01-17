@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateSection } from "../../../store/actions/principalFormActions.js";
 import "./Principal-form.css";
@@ -24,7 +24,7 @@ const PrincipalForm = ({ data, sectionId }) => {
 
   const onDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
-    section.media=file
+    section.media = file
     console.log("file", section.media)
     setUploadedImage(URL.createObjectURL(file));
   }, []);
@@ -66,27 +66,27 @@ const PrincipalForm = ({ data, sectionId }) => {
 
   const handleFileSelect = (event) => {
     const files = event.target.files;
-  console.log("files",files)
-   
-      const newImages = Array.from(files).map((file, index) => {
-        const id = `image-${index}`;
-        const url = URL.createObjectURL(file);
-  
-        return {
-          id: id,
-          file: file,
-          url: url,
-        };
-      });
-  
-      setSection((prevSection) => ({
-        ...prevSection,
-    media: newImages,
-      }));
-      console.log("filesa",section)
-   
+    console.log("files", files)
+
+    const newImages = Array.from(files).map((file, index) => {
+      const id = `image-${index}`;
+      const url = URL.createObjectURL(file);
+
+      return {
+        id: id,
+        file: file,
+        url: url,
+      };
+    });
+
+    setSection((prevSection) => ({
+      ...prevSection,
+      media: newImages,
+    }));
+    console.log("filesa", section)
+
   };
-  
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -104,8 +104,8 @@ const PrincipalForm = ({ data, sectionId }) => {
         </div>
         <div className="section-principal">
 
-        <div className="input-project-principal">
-             
+          <div className="input-project-principal">
+
 
             <input
               className="input-form"
@@ -116,7 +116,7 @@ const PrincipalForm = ({ data, sectionId }) => {
               value={section.title}
               onChange={handleInputChange}
             />
-          
+
             <input
               className="input-form-subtitle"
               placeholder="Add the project subtitle"
@@ -126,43 +126,43 @@ const PrincipalForm = ({ data, sectionId }) => {
               value={section.subtitle}
               onChange={handleInputChange}
             />
-        
-          
-        {!uploadedImage && (  
-      <div {...getRootProps()} className={`project-drap-drop ${isDragActive ? 'drag-active' : ''}`}>
-        <input {...getInputProps()} />
-        <span>{isDragActive ? 'Drop the files here' : 'Drag and drop media, or Browse'}</span>
-      </div>
-)}
-      {uploadedImage && (
-        <div className="image-form-proyect">
-        
-          <img src={uploadedImage} alt="Uploaded" style={{ maxWidth: '90%' , maxHeight: '90%'}}  />
-        </div>
-      )}
-  
-        
 
-            
 
-         
-                <textarea
-                placeholder="Give a short description of the project or add relevant details"
-                  className="textarea-form"
-                  id="description"
-                  name="description"
-                  value={section.description}
-                  onChange={handleInputChange}
-                />
-             
-         
-          <div>
-           
+            {!uploadedImage && (
+              <div {...getRootProps()} className={`project-drap-drop ${isDragActive ? 'drag-active' : ''}`}>
+                <input {...getInputProps()} />
+                <span>{isDragActive ? 'Drop the files here' : 'Drag and drop media, or Browse'}</span>
+              </div>
+            )}
+            {uploadedImage && (
+              <div className="image-form-proyect">
+
+                <img src={uploadedImage} alt="Uploaded" style={{ maxWidth: '90%', maxHeight: '90%' }} />
+              </div>
+            )}
+
+            <textarea
+              placeholder="Give a short description of the project or add relevant details"
+              className="textarea-form"
+              id="description"
+              name="description"
+              value={section.description}
+              onChange={handleInputChange}
+            />
+
+
+            <div>
+
+            </div>
           </div>
-        </div>
 
-        
+
         </div>
+        <div>
+            <button type="submit" className="submit-button">
+              <img src={checkbox} height={"30px"} alt="" />
+            </button>
+          </div>
       </div>
     </form>
   );
@@ -174,6 +174,6 @@ PrincipalForm.propTypes = {
   sectionOrder: PropTypes.string,
   onDelete: PropTypes.func,
   data: PropTypes.object,
- };
+};
 
 export default PrincipalForm;
