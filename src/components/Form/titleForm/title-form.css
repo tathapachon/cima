@@ -1,0 +1,11 @@
+.menu-float{
+   display: flex ;
+   flex-direction: column;
+   border-radius: 148px;
+    background-color: #fff;
+    box-shadow: 0 10px 35px rgba(0,0,0,.1);  
+    width: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}

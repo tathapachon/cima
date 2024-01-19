@@ -10,7 +10,7 @@ import DescriptionForm from "../../../components/Form/descriptionForm/Descriptio
 import VideoForm from "../../../components/Form/videoForm/VideoForm";
 import ImageForm from "../../../components/Form/imageForm/ImageForm";
 import Carrusel from "../../../components/Form/carrusel/Carrusel";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { uploadByte, deleteImageOrVideo } from "../../../firebase/config.js";
 import Modal from "react-modal";
 import Preview from "../../../components/Preview/Preview";
